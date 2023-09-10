@@ -31,9 +31,20 @@ public class AthleteController {
  //method to handle /processPlayerForm
  public static String processForm(@Valid @ModelAttribute("athlete") Athlete myAthlete, BindingResult result){
 
-     if (result.hasErrors())
+     if (result.hasErrors()) {
+         System.out.println("Binding result: " + result);
          return "add-player-form";
+     }
      else
          return "player-confirmation";
  }
+
+    @RequestMapping("/processStatsForm")
+    public String processForm(@Valid @ModelAttribute("playerStats") PlayerStats playerStats,
+                              BindingResult result) {
+        if (result.hasErrors())
+            return "head-to-head";
+        else
+            return "stats-confirmation";
+    }
 }
