@@ -8,14 +8,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Player</title>
+<style>
+.error {
+    color:red;
+    font-style: italic;
+}
+</style>
 </head>
 <body>
 	<h2>Player Form</h2>
 	<hr>
 	<form:form action = "processPlayerForm" modelAttribute="athlete">
 		<br><br>
+		First Name: <form:input path = "firstName"/>
+         <br><br>
 		Name: <form:input path = "lastName"/>
-
+              <form:errors path="lastName" cssClass = "error" />
 		<br><br>
 	    Country: <form:select path="country">
   	        <form:option value="AUT" label="Austria"/>
